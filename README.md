@@ -21,6 +21,6 @@ Kopiranje .bak file na virtualnu mašinu -> cp (putanja do trenutne lokacije .ba
 - Automapper [Upute](https://code-maze.com/automapper-net-core/)
    * Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection
 
-- 
+- C# Roslyn [Upute](https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019)
 
 
