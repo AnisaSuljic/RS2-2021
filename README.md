@@ -14,12 +14,12 @@ Kopiranje .bak file na virtualnu mašinu -> cp (putanja do trenutne lokacije .ba
     * Microsoft.EntityFrameworkCore.SqlServer
 
 - Reverse Engineering [Upute](https://docs.microsoft.com/en-us/ef/core/managing-schemas/scaffolding?tabs=dotnet-core-cli)
-Scaffold-DbContext 'Data Source=localhost;Initial Catalog=eProdaja;Trusted_Connection=True;' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Database
+   * Scaffold-DbContext 'Data Source=localhost;Initial Catalog=eProdaja;Trusted_Connection=True;' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Database
 
 - EF CORE [Upute](https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-5.0)
 
 - Automapper [Upute](https://code-maze.com/automapper-net-core/)
-Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection
+   * Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection
 
 - 
 
