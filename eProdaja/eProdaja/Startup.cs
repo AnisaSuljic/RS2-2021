@@ -37,8 +37,12 @@ namespace eProdaja
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<eProdajaContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddScoped<IProizvodService, ProizvodService>();
             services.AddScoped<IKorisniciService, KorisniciService>();
+            services.AddScoped<IJediniceMjereService, JediniceMjereService>();
+            services.AddScoped<IVrsteProizvodumService, VrsteProizvodumService>();
+            services.AddScoped<IProizvodiService, ProizvodiService>();
 
         }
 
