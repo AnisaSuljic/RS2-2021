@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace eProdaja.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class KorisniciController : ControllerBase
     {
         private readonly IKorisniciService _service;
