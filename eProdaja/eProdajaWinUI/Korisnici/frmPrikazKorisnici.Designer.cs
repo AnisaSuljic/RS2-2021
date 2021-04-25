@@ -32,9 +32,9 @@ namespace eProdajaWinUI.Korisnici
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKorisnici = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnPrikaz = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPrikaz = new System.Windows.Forms.Button();
+            this.txtIme = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -63,12 +63,13 @@ namespace eProdajaWinUI.Korisnici
             this.dgvKorisnici.RowTemplate.Height = 24;
             this.dgvKorisnici.Size = new System.Drawing.Size(775, 263);
             this.dgvKorisnici.TabIndex = 0;
+            this.dgvKorisnici.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisnici_CellContentClick);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnPrikaz);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtIme);
             this.groupBox2.Location = new System.Drawing.Point(12, 21);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(778, 100);
@@ -76,12 +77,14 @@ namespace eProdajaWinUI.Korisnici
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pretraga";
             // 
-            // textBox1
+            // label1
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 22);
-            this.textBox1.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Ime";
             // 
             // btnPrikaz
             // 
@@ -93,14 +96,12 @@ namespace eProdajaWinUI.Korisnici
             this.btnPrikaz.UseVisualStyleBackColor = true;
             this.btnPrikaz.Click += new System.EventHandler(this.btnPrikaz_Click);
             // 
-            // label1
+            // txtIme
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Ime";
+            this.txtIme.Location = new System.Drawing.Point(6, 47);
+            this.txtIme.Name = "txtIme";
+            this.txtIme.Size = new System.Drawing.Size(252, 22);
+            this.txtIme.TabIndex = 0;
             // 
             // frmPrikazKorisnici
             // 
@@ -111,6 +112,7 @@ namespace eProdajaWinUI.Korisnici
             this.Controls.Add(this.groupBox1);
             this.Name = "frmPrikazKorisnici";
             this.Text = "frmPrikazKorisnici";
+            this.Load += new System.EventHandler(this.frmPrikazKorisnici_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -126,6 +128,6 @@ namespace eProdajaWinUI.Korisnici
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPrikaz;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtIme;
     }
 }

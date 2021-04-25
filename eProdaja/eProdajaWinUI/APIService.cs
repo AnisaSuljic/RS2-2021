@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Flurl.Http;
 using Flurl;
+using eProdaja.Model;
 
 namespace eProdajaWinUI
 {
@@ -17,9 +18,37 @@ namespace eProdajaWinUI
             _route = route;
         }
 
-        public async Task<T> Get<T>()
+        public async Task<T> Get<T>(object request)
         {
-            var result = await $"{Properties.Settings.Default.ApiURL}/{_route}".GetJsonAsync<T>();
+            var url = $"{Properties.Settings.Default.ApiURL}/{_route}";
+            if(request!=null)
+            {
+                url += "?";
+                url += await request.ToQueryString();
+            };
+            var result = await url.GetJsonAsync<T>();
+            return result;
+        }
+        
+        public async Task<T> GetById<T>(object id)
+        {
+            var url = $"{Properties.Settings.Default.ApiURL}/{_route}/{id}";
+            var result = await url.GetJsonAsync<T>();
+            //var result = await url.WithBasicAuth(username,password).GetJsonAsync<T>(); (kada se uradi autentifikacija)
+            return result;
+        }
+
+        public async Task<T> Insert<T>(object request)
+        {
+            var url = $"{Properties.Settings.Default.ApiURL}/{_route}";
+            var result = await url.PostJsonAsync(request).ReceiveJson<T>();
+            return result;
+        }
+
+        public async Task<T> Update<T>(object id, object request)
+        {
+            var url = $"{Properties.Settings.Default.ApiURL}/{_route}/{id}";
+            var result = await url.PutJsonAsync(request).ReceiveJson<T>();
             return result;
         }
     }

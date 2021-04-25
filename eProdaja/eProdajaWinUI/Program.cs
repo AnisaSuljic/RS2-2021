@@ -16,7 +16,7 @@ namespace eProdajaWinUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Korisnici.frmPrikazKorisnici());
+            Application.Run(new frmPocetna());
         }
     }
 }

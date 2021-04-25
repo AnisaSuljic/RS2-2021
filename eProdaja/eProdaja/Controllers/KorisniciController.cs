@@ -20,9 +20,9 @@ namespace eProdaja.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Model.Korisnici> Get()
+        public IEnumerable<Model.Korisnici> Get([FromQuery] KorisniciSearchRequest request)
         {
-            return _service.Get();
+            return _service.Get(request);
         }
         [HttpPost]
         public Model.Korisnici Insert([FromBody]KorisniciInsertRequest request)

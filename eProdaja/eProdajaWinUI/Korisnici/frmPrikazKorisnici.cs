@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eProdaja.Model.Requests;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,21 @@ namespace eProdajaWinUI.Korisnici
 
         private async void btnPrikaz_Click(object sender, EventArgs e)
         {
-            dgvKorisnici.DataSource =await _serviceKorisnici.Get<List<eProdaja.Model.Korisnici>>();
+            KorisniciSearchRequest request = new KorisniciSearchRequest()
+            {
+                Ime=txtIme.Text
+            };
+            dgvKorisnici.DataSource =await _serviceKorisnici.Get<List<eProdaja.Model.Korisnici>>(request);
+        }
+
+        private async void frmPrikazKorisnici_Load(object sender, EventArgs e)
+        {
+            dgvKorisnici.DataSource = await _serviceKorisnici.Get<List<eProdaja.Model.Korisnici>>(null);
+        }
+
+        private void dgvKorisnici_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

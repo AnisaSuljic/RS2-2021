@@ -19,9 +19,15 @@ namespace eProdaja.Services
             _dbContext = dbContext;
             _mapper = mapper;
         }
-        public List<Model.Korisnici> Get()
+        public List<Model.Korisnici> Get(KorisniciSearchRequest request)
         {
-            return _dbContext.Korisnicis.ToList().Select(x => _mapper.Map<Model.Korisnici>(x)).ToList();
+            var query = _dbContext.Korisnicis.AsQueryable();
+            if(!string.IsNullOrEmpty(request.Ime))
+            {
+                query = query.Where(x => x.Ime.StartsWith(request.Ime));
+            }
+            var list = query.ToList();
+            return _mapper.Map<List<Model.Korisnici>>(list);
         }
 
         public Model.Korisnici Insert(KorisniciInsertRequest request)
