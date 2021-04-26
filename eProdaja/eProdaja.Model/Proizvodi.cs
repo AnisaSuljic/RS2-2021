@@ -18,5 +18,7 @@ namespace eProdaja.Model
 
         public virtual JediniceMjere JedinicaMjere { get; set; }
         public virtual VrsteProizvodum Vrsta { get; set; }
+        public string VrstaNaziv => Vrsta?.Naziv;
+        public string VrstaIdNaziv => $"{Vrsta?.VrstaId}-{Vrsta?.Naziv}";
     }
 }

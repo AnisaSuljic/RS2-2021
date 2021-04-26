@@ -11,7 +11,9 @@ namespace eProdaja.Services
     {
         List<Model.Korisnici> Get(KorisniciSearchRequest request);
 
-        Model.Korisnici Insert(KorisniciInsertRequest request);
+        Model.Korisnici Insert(KorisniciInsertRequest request); 
+        Model.Korisnici Update(int id, KorisniciUpdateRequest request);
+
 
     }
 }

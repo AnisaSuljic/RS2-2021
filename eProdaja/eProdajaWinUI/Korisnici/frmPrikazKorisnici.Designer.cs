@@ -35,6 +35,7 @@ namespace eProdajaWinUI.Korisnici
             this.label1 = new System.Windows.Forms.Label();
             this.btnPrikaz = new System.Windows.Forms.Button();
             this.txtIme = new System.Windows.Forms.TextBox();
+            this.btnDodaj = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -63,10 +64,11 @@ namespace eProdajaWinUI.Korisnici
             this.dgvKorisnici.RowTemplate.Height = 24;
             this.dgvKorisnici.Size = new System.Drawing.Size(775, 263);
             this.dgvKorisnici.TabIndex = 0;
-            this.dgvKorisnici.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisnici_CellContentClick);
+            this.dgvKorisnici.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisnici_CellDoubleClick);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnDodaj);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnPrikaz);
             this.groupBox2.Controls.Add(this.txtIme);
@@ -88,7 +90,7 @@ namespace eProdajaWinUI.Korisnici
             // 
             // btnPrikaz
             // 
-            this.btnPrikaz.Location = new System.Drawing.Point(623, 47);
+            this.btnPrikaz.Location = new System.Drawing.Point(264, 47);
             this.btnPrikaz.Name = "btnPrikaz";
             this.btnPrikaz.Size = new System.Drawing.Size(149, 23);
             this.btnPrikaz.TabIndex = 1;
@@ -102,6 +104,16 @@ namespace eProdajaWinUI.Korisnici
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(252, 22);
             this.txtIme.TabIndex = 0;
+            // 
+            // btnDodaj
+            // 
+            this.btnDodaj.Location = new System.Drawing.Point(623, 46);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(149, 23);
+            this.btnDodaj.TabIndex = 3;
+            this.btnDodaj.Text = "Dodaj";
+            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // frmPrikazKorisnici
             // 
@@ -129,5 +141,6 @@ namespace eProdajaWinUI.Korisnici
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPrikaz;
         private System.Windows.Forms.TextBox txtIme;
+        private System.Windows.Forms.Button btnDodaj;
     }
 }

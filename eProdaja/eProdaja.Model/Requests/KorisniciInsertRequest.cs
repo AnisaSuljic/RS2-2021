@@ -19,7 +19,6 @@ namespace eProdaja.Model.Requests
         [Required(AllowEmptyStrings =false)]
         public string Email { get; set; }
 
-        [Required]
         public string Telefon { get; set; }
 
         [Required(AllowEmptyStrings =false)]
@@ -28,5 +27,12 @@ namespace eProdaja.Model.Requests
         [Required(AllowEmptyStrings =false)]
         [MinLength(3)]
         public string Lozinka { get; set; }
+
+        [Required(AllowEmptyStrings = false)]
+        [MinLength(3)]
+        public string LozinkaPotvrda { get; set; }
+        public bool? Status { get; set; }
+
+        public List<int> Uloge { get; set; } = new List<int>();
     }
 }

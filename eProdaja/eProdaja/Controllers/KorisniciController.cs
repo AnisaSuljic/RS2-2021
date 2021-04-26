@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace eProdaja.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class KorisniciController : ControllerBase
     {
         private readonly IKorisniciService _service;
@@ -25,9 +25,14 @@ namespace eProdaja.Controllers
             return _service.Get(request);
         }
         [HttpPost]
-        public Model.Korisnici Insert([FromBody]KorisniciInsertRequest request)
+        public Model.Korisnici Insert(KorisniciInsertRequest request)
         {
             return _service.Insert(request);
+        }
+        [HttpPut("{id}")]
+        public Model.Korisnici Update(int id,[FromBody]KorisniciUpdateRequest request)
+        {
+            return _service.Update(id,request);
         }
     }
 }

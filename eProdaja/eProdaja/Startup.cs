@@ -43,6 +43,7 @@ namespace eProdaja
             services.AddScoped<IJediniceMjereService, JediniceMjereService>();
             services.AddScoped<IVrsteProizvodumService, VrsteProizvodumService>();
             services.AddScoped<IProizvodiService, ProizvodiService>();
+            services.AddScoped<IReadService<eProdaja.Model.Uloge,object>, BaseReadService<eProdaja.Model.Uloge,Database.Uloge,object>>();
 
         }
 

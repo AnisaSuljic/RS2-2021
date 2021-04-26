@@ -1,4 +1,5 @@
 ﻿using eProdajaWinUI.Korisnici;
+using eProdajaWinUI.Proizvodi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -99,6 +100,14 @@ namespace eProdajaWinUI
         {
             frmPrikazKorisnici frm = new frmPrikazKorisnici();
             frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void proizvodiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPrikazProizvodi frm = new frmPrikazProizvodi();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
             frm.Show();
         }
     }
