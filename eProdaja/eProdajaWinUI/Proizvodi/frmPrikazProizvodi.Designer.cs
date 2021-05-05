@@ -46,7 +46,7 @@ namespace eProdajaWinUI.Proizvodi
             this.dgwProizvodi = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ofdSlika = new System.Windows.Forms.OpenFileDialog();
-            this.btnSnimiSlikuUBazu = new System.Windows.Forms.Button();
+            this.btnSnimi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picProizvod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProizvodi)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -182,6 +182,7 @@ namespace eProdajaWinUI.Proizvodi
             this.dgwProizvodi.RowTemplate.Height = 24;
             this.dgwProizvodi.Size = new System.Drawing.Size(706, 214);
             this.dgwProizvodi.TabIndex = 14;
+            this.dgwProizvodi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProizvodi_CellDoubleClick);
             // 
             // groupBox1
             // 
@@ -197,21 +198,22 @@ namespace eProdajaWinUI.Proizvodi
             // 
             this.ofdSlika.FileName = "ofdSlikaProizvoda";
             // 
-            // btnSnimiSlikuUBazu
+            // btnSnimi
             // 
-            this.btnSnimiSlikuUBazu.Location = new System.Drawing.Point(571, 141);
-            this.btnSnimiSlikuUBazu.Name = "btnSnimiSlikuUBazu";
-            this.btnSnimiSlikuUBazu.Size = new System.Drawing.Size(123, 23);
-            this.btnSnimiSlikuUBazu.TabIndex = 16;
-            this.btnSnimiSlikuUBazu.Text = "Snimi sliku";
-            this.btnSnimiSlikuUBazu.UseVisualStyleBackColor = true;
+            this.btnSnimi.Location = new System.Drawing.Point(571, 141);
+            this.btnSnimi.Name = "btnSnimi";
+            this.btnSnimi.Size = new System.Drawing.Size(123, 23);
+            this.btnSnimi.TabIndex = 16;
+            this.btnSnimi.Text = "Snimi ";
+            this.btnSnimi.UseVisualStyleBackColor = true;
+            this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
             // 
             // frmPrikazProizvodi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 410);
-            this.Controls.Add(this.btnSnimiSlikuUBazu);
+            this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSlikaSnimi);
             this.Controls.Add(this.txtSlikaPutanja);
@@ -257,6 +259,6 @@ namespace eProdajaWinUI.Proizvodi
         private System.Windows.Forms.DataGridView dgwProizvodi;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.OpenFileDialog ofdSlika;
-        private System.Windows.Forms.Button btnSnimiSlikuUBazu;
+        private System.Windows.Forms.Button btnSnimi;
     }
 }

@@ -15,6 +15,9 @@ namespace eProdajaWinUI
     {
         private string _route = null;
 
+        public static string Username { get; set; }
+        public static string Password { get; set; }
+
         public APIService(string route)
         {
             _route = route;
@@ -28,7 +31,7 @@ namespace eProdajaWinUI
                 url += "?";
                 url += await request?.ToQueryString();
             };
-            var result = await url.GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(Username,Password).GetJsonAsync<T>();
             return result;
         }
         

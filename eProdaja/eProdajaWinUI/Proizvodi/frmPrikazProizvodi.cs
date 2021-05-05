@@ -1,4 +1,5 @@
 ﻿using eProdaja.Model;
+using eProdaja.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,6 +93,57 @@ namespace eProdajaWinUI.Proizvodi
                 picProizvod.Image = Image.FromFile(fileName);
 
             }
+        }
+        private ProizvodiInsertRequest insert = new ProizvodiInsertRequest();
+        private ProizvodiUpdateRequest update = new ProizvodiUpdateRequest();
+        private async void btnSnimi_Click(object sender, EventArgs e)
+        {
+            var idObj = cbVrstaProizvoda.SelectedValue;
+            if (int.TryParse(idObj.ToString(), out int vrstaId))
+            {
+                insert.VrstaId = vrstaId;
+                update.VrstaId = vrstaId;
+            }
+            if (int.TryParse(idObj.ToString(), out int jedinicaMjereId))
+            {
+                insert.JedinicaMjereId = jedinicaMjereId;
+                update.JedinicaMjereId = jedinicaMjereId;
+            }
+            insert.Naziv = update.Naziv = txtNaziv.Text;
+            insert.Sifra = txtSifra.Text;
+            if (decimal.TryParse(idObj.ToString(), out decimal cijena))
+            {
+                insert.Cijena = update.Cijena = cijena;
+            }
+            insert.VrstaId =update.VrstaId= cbVrstaProizvoda.SelectedIndex;
+            insert.JedinicaMjereId =update.JedinicaMjereId= cbJedMjere.SelectedIndex;
+            insert.Status =update.Status= true;
+            if (selectedProizvod == null)
+            {
+                await _ProizvodiService.Insert<eProdaja.Model.Proizvodi>(insert);
+            }
+            else
+            {
+                await _ProizvodiService.Update<eProdaja.Model.Proizvodi>(selectedProizvod.ProizvodId,update);
+
+            }
+
+        }
+
+        private eProdaja.Model.Proizvodi selectedProizvod = null;
+
+        private void dgwProizvodi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var item = dgwProizvodi.SelectedRows[0].DataBoundItem as eProdaja.Model.Proizvodi;
+
+            selectedProizvod = item;
+
+            cbVrstaProizvoda.SelectedIndex = selectedProizvod.VrstaId;
+            txtNaziv.Text = selectedProizvod.Naziv;
+            txtSifra.Text = selectedProizvod.Sifra;
+            txtCijena.Text = selectedProizvod.Cijena.ToString();
+            cbJedMjere.SelectedIndex = selectedProizvod.JedinicaMjereId;
+
         }
     }
 }

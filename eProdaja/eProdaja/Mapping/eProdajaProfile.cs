@@ -20,6 +20,9 @@ namespace eProdaja.Mapping
             CreateMap<Database.Uloge,Model.Uloge>();
             CreateMap<KorisniciInsertRequest,Database.Korisnici>();
             CreateMap<KorisniciUpdateRequest,Database.Korisnici>();
+
+            CreateMap<Database.KorisniciUloge, Model.KorisniciUloge>();
+
         }
     }
 }

@@ -2,6 +2,7 @@
 using eProdaja.Database;
 using eProdaja.Filters;
 using eProdaja.Model.Requests;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,7 +90,6 @@ namespace eProdaja.Services
             return Convert.ToBase64String(inArray);
         }
 
-
         //napravljen automapper
 
         //private Model.Korisnici ToModel(Korisnici entity)
@@ -105,5 +105,19 @@ namespace eProdaja.Services
         //        Status = entity.Status
         //    };
         //}
+
+        public async Task<eProdaja.Model.Korisnici> Login (string username, string password)
+        {
+            var entity = await _dbContext.Korisnicis.Include("KorisniciUloges.Uloga").FirstOrDefaultAsync(x => x.KorisnickoIme == username);
+
+            if (entity == null)
+                throw new UserException("Pogrešan username ili password");
+            var hash = GenerateHash(entity.LozinkaSalt, password);
+
+            if(hash!=entity.LozinkaHash)
+                throw new UserException("Pogrešan username ili password");
+
+            return _mapper.Map<eProdaja.Model.Korisnici>(entity);
+        }
     }
 }
